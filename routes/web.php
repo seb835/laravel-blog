@@ -11,8 +11,9 @@
 |
 */
 
-Route::get('/', 'PagesController@index');
-Route::get('about', 'PagesController@about');
-Route::get('contact', 'PagesController@contact');
-
-Route::resource('posts', 'PostController');
+Route::group(['middleware' => ['web']], function(){
+    Route::get('/', 'PagesController@index');
+    Route::get('about', 'PagesController@about');
+    Route::get('contact', 'PagesController@contact');
+    Route::resource('posts', 'PostController');
+});
