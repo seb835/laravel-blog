@@ -91,7 +91,21 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Validate the data
+        $this->validate($request, array(
+            'title' => 'required|max:255',
+            'body' => 'required'
+        ));
+
+        $post = Post::find($id);
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->save();
+
+        Session::flash('success','Successfully updated the blog post!');
+
+        // Redirect
+        return redirect()->route('posts.show', $post->id);
     }
 
     /**
