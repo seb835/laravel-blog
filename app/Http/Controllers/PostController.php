@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('id','desc')->paginate(8);
 
         return view('posts.index')->withPosts($posts);
     }
@@ -116,6 +116,12 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+
+        Session::flash('success','The blog post was successfully deleted!');
+
+        // Redirect
+        return redirect()->route('posts.index');
     }
 }
