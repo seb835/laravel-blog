@@ -19,3 +19,5 @@ Route::group(['middleware' => ['web']], function(){
     Route::get('contact', 'PagesController@contact');
     Route::resource('posts', 'PostController');
 });
+
+Auth::routes();
