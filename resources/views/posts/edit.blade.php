@@ -1,5 +1,8 @@
 @extends('main')
 @section('title','| Edit Blog Post')
+@section('stylesheets')
+    {!! Html::style('css/select2.min.css') !!}
+@endsection
 @section('content')
     <div class="row">
         {!! Form::model($post, ['route' => ['posts.update',  $post->id], 'method' => 'PUT']) !!}
@@ -9,6 +12,12 @@
 
             {{ Form::label('slug', 'Slug:', ['class' => 'form-spacing-top']) }}
             {{ Form::text('slug', null, ['class' => 'form-control']) }}
+
+            {{ Form::label('category_id', 'Category:', ['class' => 'form-spacing-top']) }}
+            {{ Form::select('category_id', $categories, $post->category_id, ['class' => 'form-control']) }}
+
+            {{ Form::label('tags', 'Tags:', ['class' => 'form-spacing-top']) }}
+            {{ Form::select('tags[]', $tags, null, ['class' => 'form-control select2-multi', 'multiple' => 'multiple']) }}
 
             {{ Form::label('body', 'Body:', ['class' => 'form-spacing-top']) }}
             {{ Form::textarea('body', null, ['class' => 'form-control']) }}
@@ -39,4 +48,12 @@
         </div>
         {!! Form::close() !!}
     </div><!-- /.row -->
+@endsection
+
+@section('scripts')
+    {!! Html::script('js/select2.min.js') !!}
+
+    <script type="text/javascript">
+        $(".select2-multi").select2();
+    </script>
 @endsection
