@@ -1,5 +1,5 @@
 @extends('main')
-@section('title', '| '.$tag->name.' Tag')
+@section('title', '| '.htmlspecialchars($tag->name).' Tag')
 @section('content')
 
     <div class="row">

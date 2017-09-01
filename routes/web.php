@@ -22,6 +22,9 @@ Route::group(['middleware' => ['web']], function(){
     // Tags
     Route::resource('tags', 'TagController', ['except' => ['create']]);
 
+    // Comments
+    Route::post('comments/{post_id}', ['uses' => 'CommentsController@store', 'as' => 'comments.store']);
+
     // Pages
     Route::get('/', 'PagesController@index');
     Route::get('about', 'PagesController@about');
