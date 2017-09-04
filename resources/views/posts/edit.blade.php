@@ -52,8 +52,10 @@
 
 @section('scripts')
     {!! Html::script('js/select2.min.js') !!}
+    {!! Html::script('//cdn.ckeditor.com/4.7.2/standard/ckeditor.js') !!}
 
     <script type="text/javascript">
         $(".select2-multi").select2();
+        CKEDITOR.replace('body');
     </script>
 @endsection
