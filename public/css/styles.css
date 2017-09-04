@@ -11,6 +11,14 @@
 .btn-sml-top-spacing {
     margin-top: 20px;
 }
+.col-btn-2 {
+    width: 70px;
+}
+
+/* post.show */
+#backend-comments {
+    margin-top: 50px;
+}
 
 /* blog.single */
 .comment {

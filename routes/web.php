@@ -24,6 +24,10 @@ Route::group(['middleware' => ['web']], function(){
 
     // Comments
     Route::post('comments/{post_id}', ['uses' => 'CommentsController@store', 'as' => 'comments.store']);
+    Route::get('comments/{post_id}/edit', ['uses' => 'CommentsController@edit', 'as' => 'comments.edit']);
+    Route::put('comments/{post_id}', ['uses' => 'CommentsController@update', 'as' => 'comments.update']);
+    Route::get('comments/{post_id}/delete', ['uses' => 'CommentsController@delete', 'as' => 'comments.delete']);
+    Route::delete('comments/{post_id}', ['uses' => 'CommentsController@destroy', 'as' => 'comments.destroy']);
 
     // Pages
     Route::get('/', 'PagesController@index');
