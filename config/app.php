@@ -180,6 +180,9 @@ return [
 
         // Re-add forms that were removed from Laravel v4
         Collective\Html\HtmlServiceProvider::class,
+
+        // Purifier
+        Mews\Purifier\PurifierServiceProvider::class,
     ],
 
     /*
@@ -231,6 +234,7 @@ return [
 
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Purifier' => Mews\Purifier\Facades\Purifier::class,
 
     ],
 
